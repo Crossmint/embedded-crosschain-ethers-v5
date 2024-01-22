@@ -70,7 +70,7 @@ const Crossmint: React.FC = () => {
                 console.log("about to send request");
                 const { hash } = await window.ethereum.request({
                   method: "eth_sendTransaction",
-                  params: [txn],
+                  params: [transaction],
                 });
                 console.log("about to return hash");
                 return hash;
