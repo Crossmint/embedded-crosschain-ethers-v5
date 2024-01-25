@@ -65,13 +65,6 @@ const Minting: React.FC<MintingProps> = ({ orderIdentifier }) => {
               >
                 View on Polygonscan
               </a>
-              <a
-                target="_blank"
-                className="block bg-[#81feab] rounded-lg mt-3 p-3 text-black"
-                href={`https://staging.crossmint.com/user/collection/poly:${result?.contractAddress}:${result?.tokenIds[0]}`}
-              >
-                View in Crossmint
-              </a>
             </div>
           </>
         )}
