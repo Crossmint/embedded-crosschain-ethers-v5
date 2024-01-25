@@ -1,4 +1,4 @@
-This project demos using Crossmint's embedded checkout with cross-chain crypto payments. In this example ethers v5 is used to connect the browser wallet.
+This project demonstrates using Crossmint's embedded NFT checkout with cross-chain crypto payments. In this example ethers v5 is used to connect the browser wallet.
 
 ## Getting Started
 
@@ -27,3 +27,7 @@ Run the app locally:
 ```bash
 pnpm dev
 ```
+
+Connect your wallet, set a destination wallet and click the Pay button.
+
+> Once the payment process has started the send ETH transaction takes about 10 seconds to complete before the SDK proceeds to the minting step. You should consider adding a more informative UI during this step.
