@@ -9,7 +9,7 @@ interface MintingProps {
 const Minting: React.FC<MintingProps> = ({ orderIdentifier }) => {
   const [status, setStatus] = React.useState<string>("pending"); // ["pending", "success", "failure"]
   const [result, setResult] = React.useState<any>(null);
-  const environment = process.env.NEXT_PUBLIC_CROSSMINT_ENVIRONMENT as string;
+  const environment = process.env.NEXT_PUBLIC_ENVIRONMENT as string;
   const { listenToMintingEvents } = useCrossmintEvents({
     environment: environment,
   });
