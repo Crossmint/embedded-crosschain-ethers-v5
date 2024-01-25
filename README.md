@@ -1,30 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project demos using Crossmint's embedded checkout with cross-chain crypto payments. In this example ethers v5 is used to connect the browser wallet.
 
 ## Getting Started
 
-You can use the following for `.env.local`
+Setup a local environment file by using the `env.sample` as a template or simply copy the below into a new file named `.env.local`.
+
+> Note that the Crossmint `projectId` and `collectionId` values are **not** sensitive and can be shared to the client.
 
 ```
-NEXT_PUBLIC_CROSSMINT_PROJECT_ID="42c43e55-f92d-4b25-bc99-d8309b6e1f38"
-NEXT_PUBLIC_CROSSMINT_COLLECTION_ID="f992e52c-afaa-46d5-9fba-214754383d0c"
-NEXT_PUBLIC_CROSSMINT_ENVIRONMENT="staging"
+NEXT_PUBLIC_PROJECT_ID="42c43e55-f92d-4b25-bc99-d8309b6e1f38"
+NEXT_PUBLIC_COLLECTION_ID="f992e52c-afaa-46d5-9fba-214754383d0c"
+NEXT_PUBLIC_ENVIRONMENT="staging"
 ```
 
-Run the app and then:
+Clone this repository and install dependencies:
 
-- open browser console
-- connect a wallet
-- set a destination wallet
-- email is optional
-- click the Pay (0.00023 ETH) button
-- observer errors in the js console
+```bash
+git clone git@github.com:Crossmint/embedded-crosschain-ethers-v5.git
 
-If I try with the transaction object that is passed into the `signer.signAndSendTransaction` function I get this error:
+cd embedded-crosschain-ethers-v5
 
-```
-MetaMask - RPC Error: Invalid parameters: must provide an Ethereum address.
+pnpm install
 ```
 
-I've tested replacing that with a very basic transaction that includes a `from` value and get a different set of errors.
+Run the app locally:
 
-Change `transaction` -> `txn` on line 73 to observe that path.
+```bash
+pnpm dev
+```
