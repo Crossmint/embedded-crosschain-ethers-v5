@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { CrossmintPaymentElement } from "@crossmint/client-sdk-react-ui";
+import { Blockchain } from "@crossmint/common-sdk-base";
 import { ethers } from "ethers";
 import Minting from "./Minting";
 
@@ -12,6 +13,7 @@ type CrossmintProps = {
 
 const Crossmint: React.FC<CrossmintProps> = ({ signer, accounts }) => {
   const [orderIdentifier, setOrderIdentifier] = useState<string | null>(null);
+  const [network, setNetwork] = useState<Blockchain>("ethereum");
 
   const projectId = process.env.NEXT_PUBLIC_PROJECT_ID as string;
   const collectionId = process.env.NEXT_PUBLIC_COLLECTION_ID as string;
@@ -35,6 +37,17 @@ const Crossmint: React.FC<CrossmintProps> = ({ signer, accounts }) => {
                 });
 
                 return response.hash;
+              },
+              supportedChains: ["arbitrum", "ethereum", "optimism"],
+              chain: network,
+              handleChainSwitch: async (chain) => {
+                const networkChainId = chain === "ethereum" ? 5 : 421613;
+                // await (window as any).ethereum.request({
+                //   method: "wallet_switchEthereumChain",
+                //   params: [{ chainId: ethers.toBeHex(11155111) }],
+                // });
+
+                setNetwork(chain);
               },
             }}
             mintConfig={{
